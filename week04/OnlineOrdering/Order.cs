@@ -24,16 +24,6 @@ public class Order
         _products.Add(product);
     }
 
-    public int CalculateTax()
-    {
-        if (_customer.GetAddress().IsUSA())
-        {
-            return 5;
-        }
-
-        return 35;
-    }
-
     public double TotalCost()
     {
         double total = 0;
