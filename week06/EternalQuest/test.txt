@@ -1,0 +1,2 @@
+0
+SimpleGoal: Simple,just a text,20,False
