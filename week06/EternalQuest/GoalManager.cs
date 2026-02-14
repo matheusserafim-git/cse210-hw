@@ -4,12 +4,29 @@ public class GoalManager
 {
     private List<Goal> _goals;
     private int _score;
+    // exceeding requirements
+    private int _level = 1;
+    private int _nextLevelScore = 500;
 
     public GoalManager()
     {
         _goals = new List<Goal>();
         _score = 0;
     }
+// exceeding requirements
+    private void CheckLevelUp()
+    {
+        while (_score >= _nextLevelScore)
+        {
+            _level++;
+            _nextLevelScore = _level * 500;
+
+            Console.WriteLine("=================================");
+            Console.WriteLine($"LEVEL UP! You are now Level {_level}!");
+            Console.WriteLine("=================================");
+        }
+    }
+
 
     public void Start()
     {
@@ -140,6 +157,8 @@ public class GoalManager
 
         int earnedPoints = _goals[choice - 1].RecordEvent();
         _score += earnedPoints;
+        // Check for level up after recording points
+        CheckLevelUp();
         Console.WriteLine($"You earned {earnedPoints} points!");
         Console.WriteLine($"Your total score is now {_score}.");
 
